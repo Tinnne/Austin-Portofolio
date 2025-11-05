@@ -11,6 +11,8 @@ import {
   X,
   ExternalLink,
   CheckCircle2,
+  User,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -34,7 +36,7 @@ const DATA = {
     sub: "Data science student focused on end‑to‑end projects: data wrangling, EDA, modeling, and deploying ML solutions. I love turning complex datasets into clear, actionable stories.",
     heroImage: "/images/data-scientist.jpg",
     primaryCta: { label: "Explore Projects", href: "#projects" },
-    secondaryCta: { label: "Download Resume", href: "#", download: true },
+    secondaryCta: { label: "Download Resume", href: "resume.pdf", download: true },
   },
   nav: [
     { label: "About", href: "#about" },
@@ -74,12 +76,12 @@ const DATA = {
     },
   ],
   contact: {
-    email: "hello@example.com",
+    email: "https://mail.google.com/mail/?view=cm&to=austin.kane1812@gmail.com",
     github: "https://github.com/Tinnne",
     linkedin: "https://linkedin.com/in/tinnne",
   },
   footer: {
-    copyright: () => `© ${new Date().getFullYear()} ${DATA.person.name} - Data Science Portfolio`,
+    copyright: () => `© ${new Date().getFullYear()} ${DATA.person.name} - Portfolio`,
   },
 };
 
@@ -258,7 +260,11 @@ function About() {
       <Container>
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-2">
-            <Badge variant="outline" className="mb-3">
+            <Badge
+              variant="secondary"
+              className="mb-3 flex items-center gap-2 bg-sky-50 text-sky-700 border border-sky-100 font-semibold"
+            >
+              <User className="w-4 h-4" />
               ABOUT ME
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{DATA.about.title}</h2>
@@ -297,9 +303,14 @@ function Projects() {
       className="py-16 border-b bg-gradient-to-b from-transparent to-slate-50/60"
     >
       <Container>
-        <Badge variant="outline" className="mb-4">
+        <Badge
+          variant="secondary"
+          className="mb-4 flex items-center gap-2 bg-sky-50 text-sky-700 border border-sky-100 font-semibold"
+        >
+          <Briefcase className="w-4 h-4" />
           PROJECTS
         </Badge>
+
         <div className="grid md:grid-cols-3 gap-6">
           {DATA.projects.map((p) => (
             <Card key={p.title} className="rounded-2xl">
@@ -335,18 +346,23 @@ function Contact() {
       <Container>
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           <div>
-            <Badge variant="outline" className="mb-3">
+            <Badge
+              variant="secondary"
+              className="mb-3 flex items-center gap-2 bg-sky-50 text-sky-700 border border-sky-100 font-semibold"
+            >
+              <Mail className="w-4 h-4" />
               GET IN TOUCH
             </Badge>
+
             <h3 className="text-3xl md:text-4xl font-bold tracking-tight">Let's collaborate</h3>
             <p className="mt-3 text-muted-foreground max-w-prose">
               I'm open to internships, research projects, and collaborations. If my work resonates
-              with you, drop a message — I'll get back quickly.
+              with you, drop a message! I'll get back quickly.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button variant="secondary" asChild className="rounded-xl">
-                <a href={`mailto:${DATA.contact.email}`}>
-                  <Mail className="w-4 h-4 mr-2" /> {DATA.contact.email}
+              <Button variant="outline" asChild className="rounded-xl">
+                <a href={DATA.contact.email} target="_blank" rel="noreferrer">
+                  <Mail className="w-4 h-4 mr-2" /> Gmail
                 </a>
               </Button>
               <Button variant="outline" asChild className="rounded-xl">
