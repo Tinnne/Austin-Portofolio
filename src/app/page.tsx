@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   Download,
@@ -170,8 +169,8 @@ function Hero() {
   const nameWords = DATA.person.name.split(" ");
 
   return (
-    <section className="relative border-b min-h-screen flex items-center overflow-hidden">
-      {/* === Background (Pixel Blast) === */}
+    <section className="relative border-b min-h-screen flex items-center pb-20 overflow-hidden">
+      {/* === Background === */}
       <div className="absolute inset-0 z-0">
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
@@ -179,13 +178,13 @@ function Hero() {
           cursorSize={100}
           isViscous={false}
           viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
+          iterationsViscous={16}
+          iterationsPoisson={16}
+          resolution={0.4}
           isBounce={false}
           autoDemo={true}
           autoSpeed={0.5}
-          autoIntensity={2.2}
+          autoIntensity={1.5}
           takeoverDuration={0.25}
           autoResumeDelay={3000}
           autoRampDuration={0.6}
@@ -196,7 +195,7 @@ function Hero() {
       <Container>
         <div className="relative z-10 gap-10 items-center py-16">
           {/* Frosted glass text box */}
-          <div className="relative rounded-3xl bg-white/40 backdrop-blur border border-white/30 shadow-lg p-10">
+          <div className="relative rounded-3xl bg-white/80 backdrop-blur border border-white/30 shadow-lg p-10">
             <Badge variant="outline" className="mb-4 text-sky-800">
               {DATA.person.tagline}
             </Badge>
