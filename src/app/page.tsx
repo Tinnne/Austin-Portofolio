@@ -20,6 +20,10 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import PixelBlast from "@/components/PixelBlast";
 import LiquidEther from "@/components/LiquidEther";
+import { ReactNode } from "react";
+type ContainerProps = {
+  children: ReactNode; // or React.ReactNode
+};
 
 const DATA = {
   siteName: "Austin's Portfolio",
@@ -92,9 +96,9 @@ const handleSmoothScroll = (e: React.MouseEvent, href: string) => {
   window.scrollTo({ top: y, behavior: "smooth" });
 };
 
-const Container = ({ children }) => (
-  <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">{children}</div>
-);
+const Container = ({ children }: ContainerProps) => {
+  return <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">{children}</div>;
+};
 
 function Navbar() {
   const [open, setOpen] = React.useState(false);
